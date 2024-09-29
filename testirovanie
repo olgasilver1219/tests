@@ -1,0 +1,115 @@
+1. Инкапсуляция - принцип объектоориентированного программирования (ООП), суть которого состоит в изоляции данных и методов, применяемых к этим данным, путем заключениия их в классы, таким образом к данным можно обратиться только с помощью их методов.
+
+Пример инкапсуляции (JavaScript)
+
+class User {
+  #password;//переменная приватная, извне класса к ней можно обратиться только через метод login()
+  constructor(email, password){
+    this.email = email
+    this.#password = password
+  }
+  login(email, passowrd){
+    if(email == this.email && passowrd == this.#password){
+      console.log("Login succesfully!");
+    }
+    else{
+      console.log("Login failed!");
+        }
+    }
+}
+user = new User('user@gmail.com', '0000')
+console.log(user.passowrd)//Вывод: undefined
+user.login('user@gmail.com', '0000')//Вывод: Login succesfully!
+
+
+
+Наседование - принцип ООП, позволяющий классам-потомкам использовать данные и их методы присвоенные родительским классам.
+
+
+Пример наследования (JavaScript)
+
+class User {
+  #password;
+  constructor(email, password){
+    this.email = email
+    this.#password = password
+  }
+  login(email, passowrd){
+    if(email == this.email && passowrd == this.#password){
+      console.log("Login succesfully!");
+    }
+    else{
+      console.log("Login failed!");
+        }
+    }
+}
+// Класс Admin наследует параметры и методы родительского класса User
+class Admin extends User {
+  constructor(email, password){
+    super(email, password);
+  }
+}
+
+admin = new Admin('admin@gmail.com', '1234');
+admin.login('admin@gmail.com', '1234');// Вывод: Login succesfully!
+
+
+Полиморфизм - еще один принцип ООП, представляющий из себя возможность использования одного метода при разных парметрах или типах, или переопределние методов с одним именем для разных классов (в JavaScript возможен только второй вариант)
+
+Пример полиморфизма (JavaScript)
+
+
+class User {
+  #password;
+  constructor(email, password){
+    this.email = email
+    this.#password = password
+  }
+  login(email, password){
+    if(email == this.email && password == this.#password){
+      console.log("Login succesfully!");
+    }
+    else{
+      console.log("Login failed!");
+        }
+    }
+    
+    add(){
+        console.log("You are a user")
+    }
+}
+
+user = new User('user@gmail.com', '0000')
+
+class Admin extends User {
+    constructor(email, password){
+      super(email, password);
+    }
+    add(){
+        console.log("You are an admin")
+    }
+}
+
+admin = new Admin('admin@gmail.com', '1234');
+
+//Для каждого класса применяется свой метод add()
+
+admin.add()//Вывод: You are an admin
+user.add()//Вывод: You are a user
+
+
+2. Для восстановления предыдущей версии кода в git после внесения ошибки необходимо в командной строке приложения git открыть репозиторий с необходимым файлом с кодом. Далее необходимо ввести команду "git log" для просмотра ветки версий(коммитов). Необходимо скопировать хэш-сумму коммита, после чего ввести команду "git checkout хэш-сумма --файл.расширение"
+
+3.Функция, определяющая, палиндром - вводимая строка или нет, на Python
+
+
+def checkPalindrome(word):
+    reverse = word[::-1]
+    if (word == reverse):
+        print(word + " - палиндром")
+    else:
+        print(word + " - не палиндром")
+
+checkPalindrome(input('Введите палиндром: '))
+
+4. Мой опыт в IT ограничивается четырьмя годами обучения в колледже Байкальского государственного университета. В рамках программы было проведено введение в: программирование на языке C#, программирование баз данных в SQL Server, разработку сайтов(frontend), пройдена учебная практика, на которой создавался динамический сайт с помощью интсрументов HTML, CSS, JavaScript. На базе этих знаний разрабатывалось приложение с базой данных в программе ms access, а также приложение с базой данных, с сайтом в качестве интерфейса пользователя и их связи с помощью языка C#. Программа предусматривала ознакомление с системой 1С и конфигурированием в ней, после чего был выполнен курсовой проект, цель которого было создание конфигурации 1С. 
